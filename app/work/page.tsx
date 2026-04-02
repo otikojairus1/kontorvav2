@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { caseStudies } from "@/lib/case-studies"
+import { getCaseStudyVisual } from "@/lib/page-visuals"
 import { ArrowRight } from "lucide-react"
 
 export const metadata = {
@@ -59,7 +60,13 @@ export default function WorkPage() {
                 className="group block"
               >
                 <article className="h-full border border-border bg-card hover:border-foreground/20 transition-all duration-300 overflow-hidden">
-                  <div className={`aspect-[16/10] ${study.imageColor} relative overflow-hidden`}>
+                  <div className="aspect-[16/10] relative overflow-hidden">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.03]"
+                      style={{
+                        backgroundImage: `linear-gradient(180deg, rgba(5, 8, 14, 0.05), rgba(5, 8, 14, 0.24)), url(${getCaseStudyVisual(study.slug)})`,
+                      }}
+                    />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,169,255,0.18),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.02))]" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="text-white/18 text-8xl font-light tracking-tight">
