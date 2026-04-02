@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react"
 const capabilityVisuals = {
   "platform-engineering": { image: "/cta-stock-1.jpg", label: "Infrastructure" },
   "integrations-apis": { image: "/cta-stock-2.jpg", label: "Systems" },
-  "managed-engineering": { image: "/team-1.jpg", label: "Teams" },
+  "managed-engineering": { image: "/cta-stock-1.jpg", label: "Teams" },
   "market-intelligence": { image: "/office-estonia.jpg", label: "Market Data" },
   "data-ai-systems": { image: "/cta-stock-3.jpg", label: "Automation" },
   "business-intelligence": { image: "/office-finland.jpg", label: "Decisioning" },

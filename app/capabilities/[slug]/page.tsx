@@ -8,7 +8,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 const capabilityDetailVisuals = {
   "platform-engineering": "/cta-stock-1.jpg",
   "integrations-apis": "/cta-stock-2.jpg",
-  "managed-engineering": "/team-1.jpg",
+  "managed-engineering": "/cta-stock-1.jpg",
   "market-intelligence": "/office-estonia.jpg",
   "data-ai-systems": "/cta-stock-3.jpg",
   "business-intelligence": "/office-finland.jpg",

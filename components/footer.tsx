@@ -33,13 +33,22 @@ const company = [
 
 const ctaImages = [
   {
-    src: "/cta-stock-1.jpg",
+    src: "/team-1.jpg",
   },
   {
-    src: "/cta-stock-2.jpg",
+    src: "/team-2.jpg",
   },
   {
-    src: "/cta-stock-3.jpg",
+    src: "/team-3.jpg",
+  },
+  {
+    src: "/team-4.jpg",
+  },
+  {
+    src: "/team-5.jpg",
+  },
+  {
+    src: "/team-6.jpg",
   },
 ]
 

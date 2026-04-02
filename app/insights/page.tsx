@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { insights } from "@/lib/insights"
+import { getInsightVisual } from "@/lib/page-visuals"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
@@ -32,7 +33,7 @@ export default function InsightsPage() {
             </div>
 
             <div className="about-hero-visual relative min-h-[420px] overflow-hidden border-t border-border lg:min-h-0 lg:border-t-0 lg:border-l">
-              {["/cta-stock-3.jpg", "/office-finland.jpg", "/team-4.jpg"].map((src, index) => (
+              {["/cta-stock-3.jpg", "/office-finland.jpg", "/office-estonia.jpg"].map((src, index) => (
                 <div
                   key={src}
                   className="cta-image-slide absolute inset-0"
@@ -74,8 +75,7 @@ export default function InsightsPage() {
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.03]"
                   style={{
-                    backgroundImage:
-                      "linear-gradient(180deg, rgba(5, 8, 14, 0.06), rgba(5, 8, 14, 0.26)), url(/cta-stock-2.jpg)",
+                    backgroundImage: `linear-gradient(180deg, rgba(5, 8, 14, 0.06), rgba(5, 8, 14, 0.26)), url(${getInsightVisual(featuredInsight.slug)})`,
                   }}
                 />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,169,255,0.18),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.02))]" />
@@ -121,28 +121,42 @@ export default function InsightsPage() {
               <Link 
                 key={insight.slug}
                 href={`/insights/${insight.slug}`}
-                className="capability-card bg-background p-8 lg:p-10 flex flex-col group relative isolate overflow-hidden"
+                className="capability-card bg-background flex flex-col group relative isolate overflow-hidden"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-medium tracking-widest uppercase text-accent">
-                    {insight.category}
+                <div className="relative aspect-[4/3] overflow-hidden border-b border-border">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.03]"
+                    style={{
+                      backgroundImage: `linear-gradient(180deg, rgba(5, 8, 14, 0.04), rgba(5, 8, 14, 0.24)), url(${getInsightVisual(insight.slug)})`,
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,169,255,0.16),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.02))]" />
+                  <span className="absolute bottom-5 right-5 text-6xl font-light text-white/20">
+                    {insight.author.initials}
                   </span>
-                  <span className="text-xs text-muted-foreground">{insight.date}</span>
                 </div>
-                <h3 className="text-xl font-medium leading-tight group-hover:text-accent transition-colors flex-1">
-                  {insight.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mt-4">
-                  {insight.excerpt}
-                </p>
-                <div className="flex items-center justify-between mt-6 pt-6 border-t border-border">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-secondary flex items-center justify-center text-xs font-medium">
-                      {insight.author.initials}
-                    </div>
-                    <span className="text-sm text-muted-foreground">{insight.author.name}</span>
+                <div className="p-8 lg:p-10 flex flex-1 flex-col">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-xs font-medium tracking-widest uppercase text-accent">
+                      {insight.category}
+                    </span>
+                    <span className="text-xs text-muted-foreground">{insight.date}</span>
                   </div>
-                  <span className="text-xs text-muted-foreground">{insight.readTime}</span>
+                  <h3 className="text-xl font-medium leading-tight group-hover:text-accent transition-colors flex-1">
+                    {insight.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mt-4">
+                    {insight.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between mt-6 pt-6 border-t border-border">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 bg-secondary flex items-center justify-center text-xs font-medium">
+                        {insight.author.initials}
+                      </div>
+                      <span className="text-sm text-muted-foreground">{insight.author.name}</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground">{insight.readTime}</span>
+                  </div>
                 </div>
               </Link>
             ))}

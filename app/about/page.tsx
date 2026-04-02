@@ -60,46 +60,46 @@ const products = [
 
 const team = [
   {
-    name: "Michael Oduor Opondo",
-    role: "Founder & CEO",
-    location: "Helsinki, Finland",
+    name: "Michael Opondo",
+    role: "CEO",
     initials: "MO",
-    image: "/team-1.jpg",
+    image: "/team/michael-opondo.png",
   },
   {
-    name: "Sarah Kimani",
+    name: "Wesley Collins",
+    role: "Software Engineer",
+    initials: "WC",
+    image: "/team/wesley-collins.png",
+  },
+  {
+    name: "Andrew Fwamba",
     role: "Head of Engineering",
-    location: "Nairobi, Kenya",
-    initials: "SK",
-    image: "/team-2.jpg",
+    initials: "AF",
+    image: "/team/andrew-fwamba.png",
   },
   {
-    name: "Erik Lindqvist",
-    role: "Nordic Operations",
-    location: "Stockholm, Sweden",
-    initials: "EL",
-    image: "/team-3.jpg",
+    name: "Sascha Bross",
+    role: "Board Member",
+    initials: "SB",
+    image: "/team/sascha-bross.png",
   },
   {
-    name: "Mari Tamm",
-    role: "Baltic Markets Lead",
-    location: "Tallinn, Estonia",
-    initials: "MT",
-    image: "/team-4.jpg",
+    name: "Elif Sude Batar",
+    role: "Head of Sales",
+    initials: "EB",
+    image: "/team/elif-sude-batar.png",
   },
   {
-    name: "James Mwangi",
-    role: "Data & AI Lead",
-    location: "Nairobi, Kenya",
-    initials: "JM",
-    image: "/team-5.jpg",
+    name: "Jeff Getenga",
+    role: "Board Member",
+    initials: "JG",
+    image: "/team/jeff-getenga.png",
   },
   {
-    name: "Anna Virtanen",
-    role: "Client Success",
-    location: "Helsinki, Finland",
-    initials: "AV",
-    image: "/team-6.jpg",
+    name: "Jairus Otiko",
+    role: "Software Engineer",
+    initials: "JO",
+    image: "/team/jairus-otiko.png",
   },
 ]
 
@@ -178,7 +178,7 @@ export default function AboutPage() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "linear-gradient(180deg, rgba(7, 11, 20, 0.1), rgba(7, 11, 20, 0.28)), url(/cta-stock-2.jpg)",
+                    "linear-gradient(180deg, rgba(7, 11, 20, 0.1), rgba(7, 11, 20, 0.28)), url(/team-3.jpg)",
                 }}
               />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(79,169,255,0.18),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.02))]" />
@@ -256,7 +256,6 @@ export default function AboutPage() {
                   </div>
                   <h3 className="text-lg font-medium">{member.name}</h3>
                   <p className="text-sm text-muted-foreground mt-1">{member.role}</p>
-                  <p className="text-xs text-muted-foreground/60 mt-2">{member.location}</p>
                 </div>
               ))}
             </div>

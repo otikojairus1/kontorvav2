@@ -78,7 +78,7 @@ export function HomeHero() {
           preload="auto"
           poster="/hero-poster.svg"
         >
-          <source src="/hero-live.mp4" type="video/mp4" />
+          <source src="/landing-page-overlay-video.mp4" type="video/mp4" />
         </video>
       </div>
 
