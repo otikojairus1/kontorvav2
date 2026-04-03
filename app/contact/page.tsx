@@ -126,45 +126,59 @@ export default function ContactPage() {
               </form>
             </div>
 
-            <div className="about-hero-visual relative min-h-[520px] overflow-hidden border-t border-border lg:min-h-0 lg:border-t-0 lg:border-l">
-              {["/office-finland.jpg", "/office-estonia.jpg", "/cta-stock-1.jpg"].map((src, index) => (
-                <div
-                  key={src}
-                  className="cta-image-slide absolute inset-0"
-                  style={{
-                    backgroundImage: `linear-gradient(180deg, rgba(5, 8, 14, 0.02), rgba(5, 8, 14, 0.22)), url(${src})`,
-                    animationDelay: `${index * 6 - 2}s`,
-                  }}
-                />
-              ))}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,169,255,0.18),transparent_22%),linear-gradient(180deg,rgba(5,8,14,0),rgba(5,8,14,0.12))]" />
+            <div className="min-h-[320px] border-t border-border bg-white lg:min-h-0 lg:border-l lg:border-t-0" />
+          </div>
+        </section>
 
-              <div className="relative z-10 flex h-full flex-col justify-end gap-6 p-6 lg:p-8">
-                <div className="grid gap-4 lg:grid-cols-2">
-                  <div className="about-floating-card border border-white/10 bg-black/38 p-5 backdrop-blur-md">
-                    <span className="inline-flex items-center gap-2 text-sm font-medium border border-white/12 bg-black/26 px-3 py-1.5 mb-4 text-white/88">
-                      Finland
-                    </span>
-                    <h3 className="text-2xl font-light tracking-tight mb-4 text-white">Helsinki</h3>
-                    <div className="space-y-2 text-sm text-white/76">
-                      <p>Kontorva Oy</p>
-                      <p>Business ID: 3570767-1</p>
-                      <p>Sturenkatu 26 lt. 36</p>
-                      <p>00510 Helsinki</p>
-                    </div>
-                  </div>
-                  <div className="about-floating-card border border-white/10 bg-black/38 p-5 backdrop-blur-md">
-                    <span className="inline-flex items-center gap-2 text-sm font-medium border border-white/12 bg-black/26 px-3 py-1.5 mb-4 text-white/88">
-                      Estonia
-                    </span>
-                    <h3 className="text-2xl font-light tracking-tight mb-4 text-white">Tallinn</h3>
-                    <div className="space-y-2 text-sm text-white/76">
-                      <p>Kontorva Group OU</p>
-                      <p>Reg. Code: 16916787</p>
-                      <p>Tehnopol Campus</p>
-                      <p>Maealuse tn 4/1, Tallinn</p>
-                    </div>
-                  </div>
+        {/* Locations Section */}
+        <section className="border-b border-border">
+          <div className="grid gap-px bg-border lg:grid-cols-2">
+            <div className="bg-white">
+              <div
+                className="relative min-h-[360px] border-b border-border bg-cover bg-center lg:min-h-[520px]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(180deg, rgba(5, 8, 14, 0.08), rgba(5, 8, 14, 0.12)), url(/office-finland.jpg)",
+                }}
+              >
+                <span className="absolute left-6 top-6 inline-flex bg-black/28 px-4 py-2 text-sm font-medium text-white/88 backdrop-blur-sm">
+                  Finland
+                </span>
+                <h3 className="absolute bottom-8 left-8 text-4xl font-light tracking-tight text-white lg:text-5xl">
+                  Helsinki
+                </h3>
+              </div>
+              <div className="px-8 py-10 lg:px-12 lg:py-12">
+                <p className="text-2xl font-medium tracking-tight">Kontorva Oy</p>
+                <div className="mt-4 space-y-3 text-lg text-muted-foreground">
+                  <p>Business ID: 3570767-1</p>
+                  <p>Sturenkatu 26 lt. 36</p>
+                  <p>00510 Helsinki, Finland</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white">
+              <div
+                className="relative min-h-[360px] border-b border-border bg-cover bg-center lg:min-h-[520px]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(180deg, rgba(5, 8, 14, 0.08), rgba(5, 8, 14, 0.12)), url(/tallin.jpg)",
+                }}
+              >
+                <span className="absolute left-6 top-6 inline-flex bg-black/28 px-4 py-2 text-sm font-medium text-white/88 backdrop-blur-sm">
+                  Estonia
+                </span>
+                <h3 className="absolute bottom-8 left-8 text-4xl font-light tracking-tight text-white lg:text-5xl">
+                  Tallinn
+                </h3>
+              </div>
+              <div className="px-8 py-10 lg:px-12 lg:py-12">
+                <p className="text-2xl font-medium tracking-tight">Kontorva Group OU</p>
+                <div className="mt-4 space-y-3 text-lg text-muted-foreground">
+                  <p>Registration Code: 16916787</p>
+                  <p>Tehnopol Science & Business Campus</p>
+                  <p>Maealuse tn 4/1, 12618 Tallinn</p>
                 </div>
               </div>
             </div>

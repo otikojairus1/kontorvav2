@@ -2,9 +2,12 @@ import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { industries } from "@/lib/industries"
+import { getIndustryVisual } from "@/lib/page-visuals"
 import { ArrowUpRight } from "lucide-react"
 
 export default function IndustriesPage() {
+  const heroImages = industries.map((industry) => getIndustryVisual(industry.slug))
+
   return (
     <>
       <Navigation />
@@ -28,13 +31,13 @@ export default function IndustriesPage() {
             </div>
 
             <div className="about-hero-visual relative min-h-[420px] overflow-hidden border-t border-border lg:min-h-0 lg:border-t-0 lg:border-l">
-              {["/office-finland.jpg", "/office-estonia.jpg", "/cta-stock-2.jpg"].map((src, index) => (
+              {heroImages.map((src, index) => (
                 <div
-                  key={src}
+                  key={`${src}-${index}`}
                   className="cta-image-slide absolute inset-0"
                   style={{
                     backgroundImage: `linear-gradient(180deg, rgba(5, 8, 14, 0.02), rgba(5, 8, 14, 0.22)), url(${src})`,
-                    animationDelay: `${index * 6 - 2}s`,
+                    animationDelay: `${index * 3 - 2}s`,
                   }}
                 />
               ))}
@@ -50,19 +53,19 @@ export default function IndustriesPage() {
               <Link
                 key={industry.slug}
                 href={`/industries/${industry.slug}`}
-                className="group capability-card relative isolate overflow-hidden bg-background px-6 lg:px-10 py-12 lg:py-16 hover:bg-foreground transition-colors duration-300"
+                className="group capability-card industry-capability-card relative isolate overflow-hidden px-6 py-12 transition-colors duration-300 lg:px-10 lg:py-16"
               >
-                <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-br from-accent/14 via-accent/8 to-transparent opacity-90 transition-transform duration-500 group-hover:scale-110" />
-                <span className="text-xs font-medium tracking-widest text-muted-foreground group-hover:text-background/50 transition-colors mb-10 block">
+                <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-br from-accent/14 via-accent/8 to-transparent opacity-90 transition-all duration-500 group-hover:scale-110 group-hover:opacity-0" />
+                <span className="relative z-10 mb-10 block text-xs font-medium tracking-widest text-muted-foreground transition-colors group-hover:text-background/50">
                   {industry.num}
                 </span>
-                <h2 className="text-xl font-medium mb-3 group-hover:text-background transition-colors">
+                <h2 className="relative z-10 mb-3 text-xl font-medium transition-colors group-hover:text-background">
                   {industry.name}
                 </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-background/70 transition-colors">
+                <p className="relative z-10 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-background/70">
                   {industry.description}
                 </p>
-                <div className="mt-8">
+                <div className="relative z-10 mt-8">
                   <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-background transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
               </Link>

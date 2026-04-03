@@ -8,14 +8,14 @@ export const insightVisuals = {
 } as const
 
 export const industryVisuals = {
-  fintech: "/cta-stock-2.jpg",
-  "mobility-logistics": "/office-estonia.jpg",
-  retail: "/cta-stock-1.jpg",
-  "green-tech": "/cta-stock-3.jpg",
-  "artificial-intelligence": "/office-finland.jpg",
-  "public-sector": "/office-finland.jpg",
-  hospitality: "/office-estonia.jpg",
-  "business-productivity": "/cta-stock-2.jpg",
+  fintech: "/industries/fintech.jpg",
+  "mobility-logistics": "/industries/logistics.jpg",
+  retail: "/industries/retail.jpg",
+  "green-tech": "/industries/greentech.jpg",
+  "artificial-intelligence": "/industries/ai.jpg",
+  "public-sector": "/industries/public-sector.jpg",
+  hospitality: "/industries/hospitality.jpg",
+  "business-productivity": "/industries/business -productivity.jpg",
 } as const
 
 export const caseStudyVisuals = {
@@ -32,7 +32,7 @@ export function getInsightVisual(slug: string) {
 }
 
 export function getIndustryVisual(slug: string) {
-  return industryVisuals[slug as keyof typeof industryVisuals] ?? "/office-finland.jpg"
+  return industryVisuals[slug as keyof typeof industryVisuals] ?? "/industries/fintech.jpg"
 }
 
 export function getCaseStudyVisual(slug: string) {

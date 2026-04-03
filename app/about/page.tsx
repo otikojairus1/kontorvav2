@@ -1,12 +1,7 @@
+import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ArrowUpRight } from "lucide-react"
-
-const aboutHeroImages = [
-  "/cta-stock-1.jpg",
-  "/cta-stock-2.jpg",
-  "/cta-stock-3.jpg",
-]
 
 const principles = [
   {
@@ -58,12 +53,24 @@ const products = [
   },
 ]
 
+const partnerLogos = [
+  "/partner-logos/1.png",
+  "/partner-logos/3.png",
+  "/partner-logos/4.png",
+  "/partner-logos/5.png",
+  "/partner-logos/6.png",
+  "/partner-logos/7.png",
+  "/partner-logos/8.png",
+  "/partner-logos/9.png",
+  "/partner-logos/10.png",
+]
+
 const team = [
   {
     name: "Michael Opondo",
     role: "CEO",
     initials: "MO",
-    image: "/team/michael-opondo.png",
+    image: "/team/michael-opondo-new.png",
   },
   {
     name: "Wesley Collins",
@@ -144,16 +151,17 @@ export default function AboutPage() {
             </div>
 
             <div className="about-hero-visual relative min-h-[420px] overflow-hidden border-t border-border lg:min-h-0 lg:border-t-0 lg:border-l">
-              {aboutHeroImages.map((src, index) => (
-                <div
-                  key={src}
-                  className="cta-image-slide absolute inset-0"
-                  style={{
-                    backgroundImage: `linear-gradient(180deg, rgba(5, 8, 14, 0.02), rgba(5, 8, 14, 0.2)), url(${src})`,
-                    animationDelay: `${index * 6 - 2}s`,
-                  }}
-                />
-              ))}
+              <video
+                className="absolute inset-0 h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster="/hero-poster.svg"
+              >
+                <source src="/landing-page-overlay-video.mp4" type="video/mp4" />
+              </video>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,169,255,0.18),transparent_22%),linear-gradient(180deg,rgba(5,8,14,0),rgba(5,8,14,0.14))]" />
               <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
                 <div className="about-floating-card max-w-sm border border-white/10 bg-black/38 p-5 backdrop-blur-md">
@@ -178,13 +186,10 @@ export default function AboutPage() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "linear-gradient(180deg, rgba(7, 11, 20, 0.1), rgba(7, 11, 20, 0.28)), url(/team-3.jpg)",
+                    "linear-gradient(180deg, rgba(7, 11, 20, 0.1), rgba(7, 11, 20, 0.28)), url(/team-2024.png)",
                 }}
               />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(79,169,255,0.18),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.02))]" />
-              <div className="absolute left-6 top-6 flex h-24 w-24 items-center justify-center border border-white/14 bg-black/24 text-4xl font-light tracking-tight text-white/84 backdrop-blur-md lg:left-8 lg:top-8">
-                MO
-              </div>
               <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
                 <div className="about-floating-card max-w-md border border-white/10 bg-black/40 p-5 backdrop-blur-md">
                   <p className="text-[11px] font-medium tracking-[0.22em] uppercase text-white/48">
@@ -208,16 +213,19 @@ export default function AboutPage() {
               
               <div className="space-y-5 text-base font-light leading-relaxed text-muted-foreground">
                 <p>
-                  That is not a metaphor. I am a lawyer from Nairobi who ended up building a technology company in Northern Europe — and the honest version of that story is that it started with a Google search.
+                  That is not a metaphor. I was a Peace and Security Consultant with a law background from Kenya - and had worked with the United Nations, the U.S. State Department, the Balsillie School of International Affairs, British High Commission, IGAD, and the British Council across four countries - and ended up building a technology company in Northern Europe. The honest version of that story is that it started with a Google search.
                 </p>
                 <p>
-                  I had been working in tech for a few years at that point — first consulting NGOs on data analytics, then building Kontorva to connect skilled African engineers with European companies that needed them. The company was growing, but I knew we needed a proper European base.
+                  I had been working in tech for a few years at that point - first consulting NGOs on data analytics, then building Kontorva to connect skilled African engineers with European companies that needed them. The company was growing, but I knew we needed a proper European base.
                 </p>
                 <p>
-                  I arrived in Tallinn in January 2023, in the middle of winter, knowing almost no one. By the end of that year I had incorporated a European company through e-Residency, been granted a Startup Visa, gone through the Tehnopol incubator programme, and was making plans to relocate permanently.
+                  In January 2024, one year after that Google search, I landed in Tallinn for the first time. I went back to Kenya in April, and in August 2024 I returned permanently, with my family. A month later, we started the Tehnopol incubator programme. In January 2026, we established our Nordic base in Helsinki - not a departure from Tallinn, but an expansion of it. Kontorva is now genuinely Finnish-Estonian: two entities, two cities, one company.
                 </p>
                 <p>
-                  Most technology firms operating in the Nordic-Baltic corridor grew up inside it. We understand it because we had to learn it — from the outside, under real conditions, with no network to fall back on. That knowledge is not incidental to what Kontorva does. It is the foundation of it.
+                  Most technology firms operating in the Nordic-Baltic corridor grew up inside it. We understand it because we had to learn it - from the outside, under real conditions, with no network to fall back on. And we committed to it in the way that people commit to things they actually believe in: we moved our families here.
+                </p>
+                <p>
+                  That knowledge is not incidental to what Kontorva does. It is the foundation of it. And it is what we are selling - not abstraction, but the operational knowledge that comes from having actually done it.
                 </p>
               </div>
               
@@ -239,23 +247,22 @@ export default function AboutPage() {
               The team behind Kontorva
             </h2>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+            <div className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-4">
               {team.map((member) => (
-                <div key={member.name} className="bg-background p-8 lg:p-10 group">
-                  <div className="w-full aspect-[4/5] relative overflow-hidden mb-6">
+                <div key={member.name} className="group flex h-full flex-col bg-white">
+                  <div className="relative mb-0 aspect-[4/5] w-full overflow-hidden">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.03]"
                       style={{
                         backgroundImage: `linear-gradient(180deg, rgba(8, 12, 20, 0.02), rgba(8, 12, 20, 0.16)), url(${member.image})`,
                       }}
                     />
-                    <span className="absolute top-4 right-4 text-5xl lg:text-6xl font-light text-white/30">
-                      {member.initials}
-                    </span>
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent" />
                   </div>
-                  <h3 className="text-lg font-medium">{member.name}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{member.role}</p>
+                  <div className="flex flex-1 flex-col bg-white p-8 lg:p-10">
+                    <h3 className="text-lg font-medium">{member.name}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{member.role}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -323,6 +330,35 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Partners Section */}
+        <section className="border-b border-border">
+          <div className="px-6 py-20 lg:px-12 lg:py-28">
+            <p className="mb-6 text-xs font-medium tracking-widest uppercase text-accent">
+              Network
+            </p>
+            <h2 className="text-3xl font-light tracking-tight lg:text-5xl">
+              Partners & Affiliations
+            </h2>
+
+            <div className="mt-16 grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+              {partnerLogos.map((src) => (
+                <div
+                  key={src}
+                  className="flex min-h-44 items-center justify-center bg-white px-8 py-10 lg:min-h-52 lg:px-10"
+                >
+                  <Image
+                    src={src}
+                    alt="Partner or affiliation logo"
+                    width={636}
+                    height={200}
+                    className="h-auto max-h-16 w-full object-contain lg:max-h-20"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Offices Section */}
         <section className="bg-secondary">
           <div className="grid md:grid-cols-2 gap-px bg-border">
@@ -338,7 +374,7 @@ export default function AboutPage() {
               {
                 country: "Estonia",
                 city: "Tallinn",
-                image: "/office-estonia.jpg",
+                image: "/tallin.jpg",
                 company: "Kontorva Group OU",
                 meta: "Registration Code: 16916787",
                 lines: ["Tehnopol Science & Business Campus", "Maealuse tn 4/1, 12618 Tallinn"],

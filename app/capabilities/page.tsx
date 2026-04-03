@@ -4,13 +4,40 @@ import { Footer } from "@/components/footer"
 import { capabilities } from "@/lib/capabilities"
 import { ArrowRight } from "lucide-react"
 
+const capabilityHeroImages = [
+  "/capabilities/pexels-thisisengineering-3861951.jpg",
+  "/capabilities/pexels-thisisengineering-3861943.jpg",
+  "/capabilities/pexels-nappy-936135.jpg",
+  "/capabilities/pexels-n-voitkevich-7235903.jpg",
+  "/capabilities/pexels-pavel-danilyuk-7869097.jpg",
+  "/capabilities/pexels-leeloothefirst-7887815.jpg",
+]
+
 const capabilityVisuals = {
-  "platform-engineering": { image: "/cta-stock-1.jpg", label: "Infrastructure" },
-  "integrations-apis": { image: "/cta-stock-2.jpg", label: "Systems" },
-  "managed-engineering": { image: "/cta-stock-1.jpg", label: "Teams" },
-  "market-intelligence": { image: "/office-estonia.jpg", label: "Market Data" },
-  "data-ai-systems": { image: "/cta-stock-3.jpg", label: "Automation" },
-  "business-intelligence": { image: "/office-finland.jpg", label: "Decisioning" },
+  "platform-engineering": {
+    image: "/capabilities/pexels-thisisengineering-3861951.jpg",
+    label: "Infrastructure",
+  },
+  "integrations-apis": {
+    image: "/capabilities/pexels-thisisengineering-3861943.jpg",
+    label: "Systems",
+  },
+  "managed-engineering": {
+    image: "/capabilities/managed-engineering.jpg",
+    label: "Teams",
+  },
+  "market-intelligence": {
+    image: "/capabilities/pexels-n-voitkevich-7235903.jpg",
+    label: "Market Data",
+  },
+  "data-ai-systems": {
+    image: "/capabilities/pexels-pavel-danilyuk-7869097.jpg",
+    label: "Automation",
+  },
+  "business-intelligence": {
+    image: "/capabilities/pexels-leeloothefirst-7887815.jpg",
+    label: "Decisioning",
+  },
 } as const
 
 export default function CapabilitiesPage() {
@@ -51,20 +78,20 @@ export default function CapabilitiesPage() {
 
                 <div className="bg-accent/10 border-l-2 border-accent p-6 mt-10 max-w-2xl">
                   <p className="text-sm leading-relaxed">
-                    <span className="font-medium">Why we built this:</span> We started as outsiders trying to operate in a fragmented market. Every capability we offer is a direct response to friction we personally encountered. We are not selling abstraction — we are selling the operational knowledge that comes from having done it.
+                    We started as outsiders trying to operate in a fragmented market. Every capability we offer is a direct response to friction we personally encountered. We are not selling abstraction — we are selling the operational knowledge that comes from having done it.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="about-hero-visual relative min-h-[420px] overflow-hidden border-t border-border lg:min-h-0 lg:border-t-0 lg:border-l">
-              {["/cta-stock-1.jpg", "/office-finland.jpg", "/office-estonia.jpg"].map((src, index) => (
+              {capabilityHeroImages.map((src, index) => (
                 <div
                   key={src}
                   className="cta-image-slide absolute inset-0"
                   style={{
                     backgroundImage: `linear-gradient(180deg, rgba(5, 8, 14, 0.02), rgba(5, 8, 14, 0.22)), url(${src})`,
-                    animationDelay: `${index * 6 - 2}s`,
+                    animationDelay: `${index * 3 - 2}s`,
                   }}
                 />
               ))}

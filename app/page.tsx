@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import {
   ArrowUpRight,
@@ -69,7 +70,18 @@ const services = [
   },
 ]
 
-const partners = ["AWS", "Microsoft", "Tableau", "Haaga-Helia", "Tehnopol", "eResidency"]
+const clientLogos = [
+  { name: "Yieldguru", src: "/client-logos/yieldguru.png" },
+  { name: "Stravika", src: "/client-logos/stravika.png" },
+  { name: "Thaka Premium Meat", src: "/client-logos/thaka-premium-meat.png" },
+  { name: "The Pharmshop", src: "/client-logos/the-pharmshop.png" },
+  { name: "Travel World Safaris", src: "/client-logos/travel-world-safaris.png" },
+  { name: "Cardinal Destination Management Company", src: "/client-logos/cardinal-dmc.png" },
+  { name: "Akili Travel", src: "/client-logos/akili-travel.png" },
+  { name: "O'Bang Law", src: "/client-logos/obang-law.png" },
+  { name: "Equity", src: "/client-logos/equity.png" },
+  { name: "Sacs", src: "/client-logos/sacs.png" },
+]
 
 export default function HomePage() {
   return (
@@ -100,6 +112,31 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Partners Strip */}
+        <section className="bg-white border-y border-border">
+          <div className="px-6 py-12 lg:px-12">
+            <div className="logo-marquee">
+              <div className="logo-marquee-track">
+                {[...clientLogos, ...clientLogos].map((logo, index) => (
+                  <div
+                    key={`${logo.name}-${index}`}
+                    className="flex h-24 w-[180px] shrink-0 items-center justify-center bg-white/80 px-4 py-3 sm:h-28 sm:w-[220px] lg:w-[240px]"
+                    aria-hidden={index >= clientLogos.length}
+                  >
+                    <Image
+                      src={logo.src}
+                      alt={logo.name}
+                      width={636}
+                      height={200}
+                      className="h-auto max-h-14 w-full object-contain sm:max-h-16"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Services Grid */}
         <section className="services-section border-t border-border">
           <div className="border-b border-border px-6 py-12 lg:px-12 lg:py-16">
@@ -125,31 +162,25 @@ export default function HomePage() {
               <Link
                 key={service.num}
                 href={service.href}
-                className="capability-card group relative isolate overflow-hidden border-b border-r border-border px-6 py-10 transition-all duration-500 hover:-translate-y-1 lg:px-10 lg:py-12"
+                className="group capability-card home-capability-card relative isolate overflow-hidden border-b border-r border-border px-6 py-10 transition-all duration-500 hover:-translate-y-1 lg:px-10 lg:py-12"
               >
-                <div
-                  className={`pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-br ${service.accent} opacity-90 transition-transform duration-500 group-hover:scale-110`}
-                />
-                <div className="pointer-events-none absolute right-6 top-5 text-7xl font-light tracking-tight text-foreground/[0.05] transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 lg:text-8xl">
+                <div className="pointer-events-none absolute right-6 top-5 text-7xl font-light tracking-tight text-foreground/[0.05] transition-colors duration-500 group-hover:text-white/10 lg:text-8xl">
                   {service.num}
                 </div>
 
                 <div className="relative z-10 flex h-full flex-col">
-                  <div className="flex items-start justify-between gap-4">
+                  <div>
                     <div>
-                      <span className="mb-6 block text-xs font-medium tracking-[0.24em] text-accent">
+                      <span className="mb-6 block text-xs font-medium tracking-[0.24em] text-accent transition-colors duration-500 group-hover:text-background/50">
                         {service.num}
                       </span>
-                      <h3 className="max-w-xs text-2xl font-medium tracking-tight">
+                      <h3 className="max-w-xs text-2xl font-medium tracking-tight transition-colors duration-500 group-hover:text-background">
                         {service.title}
                       </h3>
                     </div>
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-foreground/10 bg-background/80 shadow-[0_18px_45px_rgba(17,24,39,0.08)] backdrop-blur-sm transition-all duration-500 group-hover:-translate-y-1 group-hover:border-accent/30 group-hover:bg-white">
-                      <service.icon className="h-5 w-5 text-foreground/80 transition-colors duration-500 group-hover:text-accent" />
-                    </div>
                   </div>
 
-                  <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground lg:text-[15px]">
+                  <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground transition-colors duration-500 group-hover:text-background/70 lg:text-[15px]">
                     {service.description}
                   </p>
 
@@ -157,17 +188,17 @@ export default function HomePage() {
                     {service.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="border border-foreground/10 bg-background/72 px-3 py-1 text-[11px] font-medium tracking-[0.16em] uppercase text-muted-foreground backdrop-blur-sm transition-colors duration-500 group-hover:border-accent/20 group-hover:text-foreground"
+                        className="border border-foreground/10 bg-background/72 px-3 py-1 text-[11px] font-medium tracking-[0.16em] uppercase text-muted-foreground backdrop-blur-sm transition-colors duration-500 group-hover:border-accent/20 group-hover:text-background"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="mt-10 flex items-center justify-between gap-4 text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                  <div className="mt-10 flex items-center justify-between gap-4 text-muted-foreground transition-colors duration-300 group-hover:text-background">
                     <span className="text-sm font-medium">Learn more</span>
                     <div className="flex h-10 w-10 items-center justify-center border border-foreground/10 bg-background/75 transition-all duration-300 group-hover:border-accent/30 group-hover:bg-accent/8">
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-background" />
                     </div>
                   </div>
                 </div>
@@ -176,24 +207,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Partners Strip */}
-        <section className="bg-secondary border-y border-border">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16 px-6 lg:px-12 py-12">
-            <span className="text-xs font-medium tracking-widest uppercase text-muted-foreground whitespace-nowrap">
-              Technology Partners
-            </span>
-            <div className="flex flex-wrap items-center gap-8 lg:gap-12">
-              {partners.map((partner) => (
-                <span
-                  key={partner}
-                  className="text-sm font-medium tracking-widest uppercase text-muted-foreground/60"
-                >
-                  {partner}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
 
       <Footer />

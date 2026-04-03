@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
@@ -33,19 +34,32 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/92 backdrop-blur-md border-b border-border">
       <div className="flex items-center justify-between h-16 px-6 lg:px-12">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex items-center gap-0.5">
-            <div className="w-2.5 h-6 bg-foreground -skew-x-6" />
-            <div className="w-2.5 h-6 bg-accent -skew-x-6" />
-          </div>
-          <span 
+        <Link href="/" className="relative flex h-8 items-center">
+          <div
             className={cn(
-              "text-lg font-semibold tracking-tight transition-all duration-300 overflow-hidden",
-              scrolled ? "w-0 opacity-0" : "w-auto opacity-100"
+              "flex items-center transition-all duration-300",
+              scrolled ? "pointer-events-none w-0 scale-95 opacity-0" : "w-[170px] scale-100 opacity-100 lg:w-[210px]"
             )}
           >
-            .kontorva
-          </span>
+            <Image
+              src="/logo-full.png"
+              alt="Kontorva"
+              width={636}
+              height={200}
+              className="h-auto w-full object-contain"
+              priority
+            />
+          </div>
+
+          <div
+            className={cn(
+              "absolute left-0 top-1/2 flex -translate-y-1/2 items-center gap-0.5 transition-all duration-300",
+              scrolled ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
+            )}
+          >
+            <div className="h-6 w-2.5 -skew-x-6 bg-foreground" />
+            <div className="h-6 w-2.5 -skew-x-6 bg-accent" />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

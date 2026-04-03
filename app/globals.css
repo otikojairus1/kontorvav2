@@ -159,9 +159,24 @@
       linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 246, 243, 0.92));
   }
 
-  .capability-card {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 248, 245, 0.98));
+  .home-capability-card {
+    background: #fff;
+    background-image: none;
+  }
+
+  .home-capability-card:hover {
+    background: #000;
+    background-image: none;
+  }
+
+  .industry-capability-card {
+    background: #fff;
+    background-image: none;
+  }
+
+  .industry-capability-card:hover {
+    background: #000;
+    background-image: none;
   }
 
   .capability-card::after {
@@ -178,6 +193,37 @@
 
   .capability-card:hover::after {
     opacity: 1;
+  }
+
+  .home-capability-card::after,
+  .home-capability-card:hover::after {
+    content: none;
+    opacity: 0;
+    background: none;
+  }
+
+  .industry-capability-card::after,
+  .industry-capability-card:hover::after {
+    content: none;
+    opacity: 0;
+    background: none;
+  }
+
+  .logo-marquee {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .logo-marquee-track {
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    width: max-content;
+    animation: logo-marquee-scroll-left 34s linear infinite;
+    will-change: transform;
   }
 
   .cta-shell {
@@ -256,6 +302,22 @@
     100% {
       opacity: 0;
       transform: scale(0.98);
+    }
+  }
+
+  @keyframes logo-marquee-scroll-left {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(calc(-50% - 0.625rem), 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track {
+      animation-duration: 0.01ms;
+      animation-iteration-count: 1;
     }
   }
 }

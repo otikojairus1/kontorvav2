@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
@@ -31,27 +32,6 @@ const company = [
   { href: "/contact", label: "Contact" },
 ]
 
-const ctaImages = [
-  {
-    src: "/team-1.jpg",
-  },
-  {
-    src: "/team-2.jpg",
-  },
-  {
-    src: "/team-3.jpg",
-  },
-  {
-    src: "/team-4.jpg",
-  },
-  {
-    src: "/team-5.jpg",
-  },
-  {
-    src: "/team-6.jpg",
-  },
-]
-
 export function Footer() {
   return (
     <footer className="bg-foreground text-background">
@@ -67,7 +47,7 @@ export function Footer() {
             <h2 className="text-4xl font-light leading-[1.02] tracking-tight text-balance lg:text-7xl">
               Let&apos;s engineer something
               <br />
-              <span className="cta-highlight inline-block text-accent">
+              <span className="cta-highlight relative -top-1 inline-block pb-1 text-accent lg:-top-2 lg:pb-2">
                 meaningful together.
               </span>
             </h2>
@@ -93,16 +73,16 @@ export function Footer() {
           <div className="cta-visual relative min-h-[420px] overflow-hidden border-t border-background/10 lg:min-h-0 lg:border-t-0 lg:border-l">
             <div className="cta-grid absolute inset-0 opacity-20" />
             <div className="absolute inset-0 overflow-hidden">
-              {ctaImages.map((image, index) => (
-                <div
-                  key={image.src}
-                  className="cta-image-slide absolute inset-0"
-                  style={{
-                    backgroundImage: `linear-gradient(180deg, rgba(5, 8, 14, 0.02), rgba(5, 8, 14, 0.18)), url(${image.src})`,
-                    animationDelay: `${index * 6 - 2}s`,
-                  }}
-                />
-              ))}
+              <video
+                className="h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              >
+                <source src="/footer-video.mp4" type="video/mp4" />
+              </video>
             </div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,169,255,0.14),transparent_24%),linear-gradient(180deg,rgba(5,8,14,0),rgba(5,8,14,0.1))]" />
           </div>
@@ -198,15 +178,19 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row justify-between gap-12">
           {/* Logo & Tagline */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex items-center gap-0.5">
-                <div className="w-2.5 h-6 bg-background -skew-x-6" />
-                <div className="w-2.5 h-6 bg-accent -skew-x-6" />
-              </div>
-              <span className="text-lg font-semibold tracking-tight">.kontorva</span>
+            <Link href="/" className="block w-[180px] sm:w-[220px]">
+              <Image
+                src="/kontorva-dark-no-bg.png"
+                alt="Kontorva"
+                width={636}
+                height={200}
+                className="h-auto w-full object-contain"
+              />
             </Link>
             <p className="text-sm text-background/50 max-w-xs">
-              Finnish-Estonian technology company. Engineered for Europe.
+              Engineered for Europe.
+              <br />
+              Built for the real world.
             </p>
           </div>
 
